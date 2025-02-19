@@ -1,0 +1,7 @@
+SELECT personName, COUNT(*) FROM Results 
+WHERE pos = 1 AND roundTypeID in ('C', 'F') AND Best > 0
+AND competitionId LIKE 'WC2%' 
+GROUP BY personID
+ORDER BY COUNT(*) DESC
+
+-- simple query for returning who has the most event wins across all World Championships 
