@@ -1,0 +1,11 @@
+SELECT personID, personName, COUNT(DISTINCT EventID) AS event_wins
+FROM Results
+WHERE pos = 1 
+  AND roundTypeID IN ('C', 'F') 
+  AND Best > 0 
+  AND EventID IN ('333', '222', '444', '555', '666', '777', 'pyram', 'sq1', 'skewb', 'minx', 'clock', '333fm', '333oh', '333bf', '444bf', '555bf', '333mbf')
+GROUP BY personID, personName
+HAVING COUNT(DISTINCT EventID) = 17
+ORDER BY personName;
+
+-- returns a list of everyone who has won every event at least once 
