@@ -1,0 +1,7 @@
+SELECT personID, personName, COUNT(DISTINCT CASE WHEN pos = 1 THEN EventID END) AS golds, COUNT(DISTINCT CASE WHEN pos = 2 THEN EventID END) AS silvers, COUNT(DISTINCT CASE WHEN pos = 3 THEN EventID END) AS bronzes
+FROM Results
+WHERE pos IN (1, 2, 3) 
+  AND roundTypeID IN ('C', 'F') 
+  AND Best > 0 
+  AND EventID IN ('333', '222', '444', '555', '666', '777', 'pyram', 'sq1', 'skewb', 'minx', 'clock', '333fm', '333oh', '333bf', '444bf', '555bf', '333mbf') 
+  AND personID = ":WCAID"
